@@ -3,7 +3,7 @@ name = "minter-meta"
 version = "0.1.0"
 edition = "2018"
 publish = false
-authors = [ "you",]
+authors = ["Micha Vie <micha@peerme.io>", "Spawnable <hello@spawnable.io>"]
 
 [dev-dependencies]
 
