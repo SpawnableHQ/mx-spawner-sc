@@ -6,4 +6,9 @@ multiversx_sc::imports!();
 pub trait MinterContract {
     #[init]
     fn init(&self) {}
+
+    #[endpoint(mintObject)]
+    fn mint_object_endpoint(&self) {
+        //
+    }
 }
