@@ -3,7 +3,7 @@
 multiversx_sc::imports!();
 
 #[multiversx_sc::contract]
-pub trait MinterContract {
+pub trait SpawnerContract {
     #[init]
     fn init(&self) {}
 

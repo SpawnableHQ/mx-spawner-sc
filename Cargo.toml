@@ -1,5 +1,5 @@
 [package]
-name = "minter"
+name = "spawner"
 version = "0.0.0"
 authors = ["Micha Vie <micha@peerme.io>", "Spawnable <hello@spawnable.io>"]
 edition = "2018"

@@ -390,21 +390,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
 
 [[package]]
-name = "minter"
-version = "0.0.0"
-dependencies = [
- "multiversx-sc",
-]
-
-[[package]]
-name = "minter-meta"
-version = "0.1.0"
-dependencies = [
- "minter",
- "multiversx-sc-meta",
-]
-
-[[package]]
 name = "multiversx-sc"
 version = "0.42.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -677,6 +662,21 @@ name = "smallvec"
 version = "1.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "62bb4feee49fdd9f707ef802e22365a35de4b7b299de4763d44bfea899442ff9"
+
+[[package]]
+name = "spawner"
+version = "0.0.0"
+dependencies = [
+ "multiversx-sc",
+]
+
+[[package]]
+name = "spawner-meta"
+version = "0.1.0"
+dependencies = [
+ "multiversx-sc-meta",
+ "spawner",
+]
 
 [[package]]
 name = "strsim"

@@ -1,3 +1,3 @@
 fn main() {
-    multiversx_sc_meta::cli_main::<minter::AbiProvider>();
+    multiversx_sc_meta::cli_main::<spawner::AbiProvider>();
 }

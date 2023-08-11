@@ -1,5 +1,5 @@
 [package]
-name = "minter-meta"
+name = "spawner-meta"
 version = "0.1.0"
 edition = "2018"
 publish = false
@@ -7,7 +7,7 @@ authors = ["Micha Vie <micha@peerme.io>", "Spawnable <hello@spawnable.io>"]
 
 [dev-dependencies]
 
-[dependencies.minter]
+[dependencies.spawner]
 path = ".."
 
 [dependencies.multiversx-sc-meta]
