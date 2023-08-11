@@ -7,8 +7,8 @@ pub trait MinterContract {
     #[init]
     fn init(&self) {}
 
-    #[endpoint(mintObject)]
-    fn mint_object_endpoint(&self) {
+    #[endpoint(spawnObject)]
+    fn spawn_object_endpoint(&self) {
         //
     }
 }
