@@ -2,8 +2,10 @@
 
 multiversx_sc::imports!();
 
+pub mod events;
+
 #[multiversx_sc::contract]
-pub trait SpawnerContract {
+pub trait SpawnerContract: events::EventsModule {
     #[init]
     fn init(&self) {}
 
@@ -23,7 +25,8 @@ pub trait SpawnerContract {
             &args.to_arg_buffer(),
         );
 
-        self.contracts().insert(address);
+        self.contracts().insert(address.clone());
+        self.contract_spawned_event(address);
     }
 
     #[endpoint(spawnObject)]
