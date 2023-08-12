@@ -2,12 +2,25 @@
 
 multiversx_sc::imports!();
 
+pub mod config;
 pub mod events;
 
 #[multiversx_sc::contract]
-pub trait SpawnerContract: events::EventsModule {
+pub trait SpawnerContract: config::ConfigModule + events::EventsModule {
     #[init]
     fn init(&self) {}
+
+    #[only_owner]
+    #[endpoint(addAdmin)]
+    fn add_admin(&self, address: ManagedAddress) {
+        self.admins().insert(address);
+    }
+
+    #[only_owner]
+    #[endpoint(removeAdmin)]
+    fn remove_admin(&self, address: ManagedAddress) {
+        self.admins().swap_remove(&address);
+    }
 
     #[endpoint(spawnContract)]
     fn spawn_contract_endpoint(&self, code: ManagedBuffer, code_metadata: CodeMetadata, gas: u64, args: MultiValueEncoded<ManagedBuffer>) {
