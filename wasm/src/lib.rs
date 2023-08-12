@@ -25,7 +25,7 @@ multiversx_sc_wasm_adapter::endpoints! {
         setObjectRoyalties => set_object_royalties_endpoint
         spawnObject => spawn_object_endpoint
         spawnContract => spawn_contract_endpoint
-        upgradeContract => upgrade_contract_endpoint
+        respawnContract => respawn_contract_endpoint
         getContracts => contracts
     )
 }

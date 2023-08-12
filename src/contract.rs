@@ -13,8 +13,8 @@ pub trait ContractModule: config::ConfigModule {
         self.contract_spawned_event(address);
     }
 
-    #[endpoint(upgradeContract)]
-    fn upgrade_contract_endpoint(&self, address: ManagedAddress, code: ManagedBuffer, code_metadata: CodeMetadata, gas: u64, args: MultiValueEncoded<ManagedBuffer>) {
+    #[endpoint(respawnContract)]
+    fn respawn_contract_endpoint(&self, address: ManagedAddress, code: ManagedBuffer, code_metadata: CodeMetadata, gas: u64, args: MultiValueEncoded<ManagedBuffer>) {
         self.require_caller_is_admin();
         require!(self.contracts().contains(&address), "contract must be spawned first");
 
