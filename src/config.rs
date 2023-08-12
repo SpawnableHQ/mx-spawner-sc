@@ -1,5 +1,7 @@
 multiversx_sc::imports!();
 
+pub const ROYALTIES_MAX: u32 = 100_00;
+
 #[multiversx_sc::module]
 pub trait ConfigModule {
     fn require_caller_is_admin(&self) {

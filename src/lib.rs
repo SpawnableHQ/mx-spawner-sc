@@ -4,9 +4,10 @@ multiversx_sc::imports!();
 
 pub mod config;
 pub mod events;
+pub mod object;
 
 #[multiversx_sc::contract]
-pub trait SpawnerContract: config::ConfigModule + events::EventsModule {
+pub trait SpawnerContract: config::ConfigModule + object::ObjectModule + events::EventsModule {
     #[init]
     fn init(&self) {
         let caller = self.blockchain().get_caller();
@@ -46,13 +47,6 @@ pub trait SpawnerContract: config::ConfigModule + events::EventsModule {
             .upgrade_contract(&address, gas, &BigUint::zero(), &code, code_metadata, &args.to_arg_buffer());
 
         self.contract_upgraded_event(address);
-    }
-
-    #[endpoint(spawnObject)]
-    fn spawn_object_endpoint(&self) {
-        // TODO: guard caller is admin
-
-        //
     }
 
     #[view(getContracts)]
