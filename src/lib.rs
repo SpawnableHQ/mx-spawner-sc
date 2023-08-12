@@ -24,6 +24,7 @@ pub trait SpawnerContract: config::ConfigModule + events::EventsModule {
 
     #[endpoint(spawnContract)]
     fn spawn_contract_endpoint(&self, code: ManagedBuffer, code_metadata: CodeMetadata, gas: u64, args: MultiValueEncoded<ManagedBuffer>) {
+        // TODO: guard caller is admin
         let (address, _) = self.send_raw().deploy_contract(gas, &BigUint::zero(), &code, code_metadata, &args.to_arg_buffer());
 
         self.contracts().insert(address.clone());
@@ -32,6 +33,7 @@ pub trait SpawnerContract: config::ConfigModule + events::EventsModule {
 
     #[endpoint(upgradeContract)]
     fn upgrade_contract_endpoint(&self, address: ManagedAddress, code: ManagedBuffer, code_metadata: CodeMetadata, gas: u64, args: MultiValueEncoded<ManagedBuffer>) {
+        // TODO: guard caller is admin
         require!(self.contracts().contains(&address), "contract must be spawned first");
 
         self.send_raw()
@@ -42,6 +44,8 @@ pub trait SpawnerContract: config::ConfigModule + events::EventsModule {
 
     #[endpoint(spawnObject)]
     fn spawn_object_endpoint(&self) {
+        // TODO: guard caller is admin
+
         //
     }
 
