@@ -23,6 +23,8 @@ pub trait SpawnerContract: events::EventsModule {
 
         self.send_raw()
             .upgrade_contract(&address, gas, &BigUint::zero(), &code, code_metadata, &args.to_arg_buffer());
+
+        self.contract_upgraded_event(address);
     }
 
     #[endpoint(spawnObject)]
