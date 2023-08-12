@@ -17,6 +17,14 @@ pub trait SpawnerContract: events::EventsModule {
         self.contract_spawned_event(address);
     }
 
+    #[endpoint(upgradeContract)]
+    fn upgrade_contract_endpoint(&self, address: ManagedAddress, code: ManagedBuffer, code_metadata: CodeMetadata, gas: u64, args: MultiValueEncoded<ManagedBuffer>) {
+        require!(self.contracts().contains(&address), "contract must be spawned first");
+
+        self.send_raw()
+            .upgrade_contract(&address, gas, &BigUint::zero(), &code, code_metadata, &args.to_arg_buffer());
+    }
+
     #[endpoint(spawnObject)]
     fn spawn_object_endpoint(&self) {
         //
