@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                            3
+// Endpoints:                            7
 // Async Callback (empty):               1
-// Total number of exported functions:   5
+// Total number of exported functions:   9
 
 #![no_std]
 #![feature(lang_items)]
@@ -19,9 +19,13 @@ multiversx_sc_wasm_adapter::endpoints! {
     spawner
     (
         init => init
+        addAdmin => add_admin
+        removeAdmin => remove_admin
         spawnContract => spawn_contract_endpoint
+        upgradeContract => upgrade_contract_endpoint
         spawnObject => spawn_object_endpoint
         getContracts => contracts
+        getAdmins => admins
     )
 }
 
