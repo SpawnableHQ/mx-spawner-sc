@@ -8,7 +8,13 @@ pub mod events;
 #[multiversx_sc::contract]
 pub trait SpawnerContract: config::ConfigModule + events::EventsModule {
     #[init]
-    fn init(&self) {}
+    fn init(&self) {
+        let caller = self.blockchain().get_caller();
+
+        if !self.admins().contains(&caller) {
+            self.admins().insert(caller);
+        }
+    }
 
     #[only_owner]
     #[endpoint(addAdmin)]
