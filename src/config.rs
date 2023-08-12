@@ -6,7 +6,9 @@ pub const ROYALTIES_MAX: u32 = 100_00;
 pub trait ConfigModule {
     fn require_caller_is_admin(&self) {
         let caller = self.blockchain().get_caller();
-        require!(self.admins().contains(&caller), "not allowed for user");
+        let is_admin = self.admins().contains(&caller);
+
+        require!(is_admin, "not allowed for user");
     }
 
     #[view(getAdmins)]
