@@ -43,3 +43,27 @@ upgrade() {
         "${SNIPPETS_SECURE_SIGN_METHOD[@]}" \
         --send || return
 }
+
+# params:
+#   $1 = address
+addAdmin() {
+    mxpy contract call $ADDRESS \
+        --function="addAdmin" \
+        --arguments $1 \
+        --recall-nonce --gas-limit=10000000 \
+        --proxy=$PROXY --chain=$CHAIN_ID \
+        "${SNIPPETS_SECURE_SIGN_METHOD[@]}" \
+        --send || return
+}
+
+# params:
+#   $1 = address
+removeAdmin() {
+    mxpy contract call $ADDRESS \
+        --function="removeAdmin" \
+        --arguments $1 \
+        --recall-nonce --gas-limit=10000000 \
+        --proxy=$PROXY --chain=$CHAIN_ID \
+        "${SNIPPETS_SECURE_SIGN_METHOD[@]}" \
+        --send || return
+}
