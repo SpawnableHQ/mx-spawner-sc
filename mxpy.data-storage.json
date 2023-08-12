@@ -1,0 +1,16 @@
+{
+  "devnet": {
+    "proxy": "https://devnet-gateway.multiversx.com",
+    "chain-id": "D",
+    "address": "erd1qqqqqqqqqqqqqpgq6k4ds789nymtdyphu38svarqca724kqml3tszs2dzs",
+    "deploy-transaction": "8343326bfe48e3076d30e62f2cf606127399176ac254f1d2a7a4dc79bf4be140"
+  },
+  "testnet": {
+    "proxy": "https://testnet-gateway.multiversx.com",
+    "chain-id": "T"
+  },
+  "mainnet": {
+    "proxy": "https://gateway.multiversx.com",
+    "chain-id": "1"
+  }
+}
