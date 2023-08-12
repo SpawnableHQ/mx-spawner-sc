@@ -21,12 +21,12 @@ multiversx_sc_wasm_adapter::endpoints! {
         init => init
         addAdmin => add_admin
         removeAdmin => remove_admin
-        spawnContract => spawn_contract_endpoint
-        upgradeContract => upgrade_contract_endpoint
-        getContracts => contracts
         getAdmins => admins
         setObjectRoyalties => set_object_royalties_endpoint
         spawnObject => spawn_object_endpoint
+        spawnContract => spawn_contract_endpoint
+        upgradeContract => upgrade_contract_endpoint
+        getContracts => contracts
     )
 }
 
