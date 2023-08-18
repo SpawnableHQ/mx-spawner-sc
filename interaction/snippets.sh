@@ -17,6 +17,7 @@ deploy() {
         --recall-nonce --gas-limit=80000000 \
         --proxy=$PROXY --chain=$CHAIN_ID \
         --outfile="deploy-$NETWORK_NAME.interaction.json" \
+        --metadata-payable \
         --metadata-payable-by-sc \
         "${SNIPPETS_SECURE_SIGN_METHOD[@]}" \
         --send || return
@@ -39,6 +40,7 @@ upgrade() {
     mxpy contract upgrade $ADDRESS --project . \
         --recall-nonce --gas-limit=80000000 \
         --proxy=$PROXY --chain=$CHAIN_ID \
+        --metadata-payable \
         --metadata-payable-by-sc \
         "${SNIPPETS_SECURE_SIGN_METHOD[@]}" \
         --send || return
