@@ -14,7 +14,7 @@ pub trait ObjectModule: config::ConfigModule {
     }
 
     #[endpoint(spawnObject)]
-    fn spawn_object_endpoint(&self, name: ManagedBuffer, hash: ManagedBuffer, attributes: ManagedBuffer, uri: ManagedBuffer) {
+    fn spawn_object_endpoint(&self, receiver: ManagedAddress, name: ManagedBuffer, hash: ManagedBuffer, attributes: ManagedBuffer, uri: ManagedBuffer) {
         self.require_caller_is_admin();
 
         let collection_id = self.object_collection().get();
@@ -23,6 +23,8 @@ pub trait ObjectModule: config::ConfigModule {
         let uris = ManagedVec::from_single_item(uri);
 
         let nonce = self.send().esdt_nft_create(&collection_id, &one_big, &name, &royalties, &hash, &attributes, &uris);
+
+        self.send().direct_esdt(&receiver, &collection_id, nonce, &one_big);
 
         self.object_spawned_event(collection_id, nonce);
     }
