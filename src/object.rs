@@ -35,6 +35,7 @@ pub trait ObjectModule: config::ConfigModule {
     #[payable("EGLD")]
     #[endpoint(issueObjectCollection)]
     fn issue_object_collection_endpoint(&self) {
+        self.require_caller_is_admin();
         require!(self.object_collection().is_empty(), "object collection already set");
 
         let payment_value = self.call_value().egld_value();
