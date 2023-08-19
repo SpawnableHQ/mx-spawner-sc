@@ -75,6 +75,22 @@ pub trait ObjectModule: config::ConfigModule {
         }
     }
 
+    #[endpoint(setObjectCollectionLocalRoles)]
+    fn set_local_roles(&self) {
+        self.require_caller_is_admin();
+        require!(!self.object_collection().is_empty(), "object collection must be set");
+
+        self.send()
+            .esdt_system_sc_proxy()
+            .set_special_roles(
+                &self.blockchain().get_sc_address(),
+                &self.object_collection().get(),
+                [EsdtLocalRole::NftCreate][..].iter().cloned(),
+            )
+            .async_call()
+            .call_and_exit()
+    }
+
     #[storage_mapper("object:collection")]
     fn object_collection(&self) -> SingleValueMapper<TokenIdentifier>;
 
