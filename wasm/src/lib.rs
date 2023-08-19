@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                            8
-// Async Callback (empty):               1
-// Total number of exported functions:  10
+// Endpoints:                           10
+// Async Callback:                       1
+// Total number of exported functions:  12
 
 #![no_std]
 #![feature(lang_items)]
@@ -24,10 +24,12 @@ multiversx_sc_wasm_adapter::endpoints! {
         getAdmins => admins
         setObjectRoyalties => set_object_royalties_endpoint
         spawnObject => spawn_object_endpoint
+        issueObjectCollection => issue_object_collection_endpoint
+        setObjectCollectionLocalRoles => set_local_roles
         spawnContract => spawn_contract_endpoint
         respawnContract => respawn_contract_endpoint
         getContracts => contracts
     )
 }
 
-multiversx_sc_wasm_adapter::async_callback_empty! {}
+multiversx_sc_wasm_adapter::async_callback! { spawner }
