@@ -17,13 +17,20 @@ pub trait ObjectModule: config::ConfigModule {
     }
 
     #[endpoint(spawnObject)]
-    fn spawn_object_endpoint(&self, receiver: ManagedAddress, name: ManagedBuffer, hash: ManagedBuffer, attributes: ManagedBuffer, uri: ManagedBuffer) {
+    fn spawn_object_endpoint(
+        &self,
+        receiver: ManagedAddress,
+        name: ManagedBuffer,
+        hash: ManagedBuffer,
+        attributes: ManagedBuffer,
+        uris: MultiValueEncoded<ManagedBuffer>,
+    ) {
         self.require_caller_is_admin();
 
         let collection_id = self.object_collection().get();
         let one_big = BigUint::from(1u8);
         let royalties = BigUint::from(self.object_royalties().get());
-        let uris = ManagedVec::from_single_item(uri);
+        let uris = uris.to_vec();
 
         let nonce = self.send().esdt_nft_create(&collection_id, &one_big, &name, &royalties, &hash, &attributes, &uris);
 
