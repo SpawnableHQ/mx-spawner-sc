@@ -2,12 +2,12 @@
 
 multiversx_sc::imports!();
 
+pub mod blueprint;
 pub mod config;
 pub mod contract;
-pub mod object;
 
 #[multiversx_sc::contract]
-pub trait SpawnerContract: config::ConfigModule + object::ObjectModule + contract::ContractModule {
+pub trait SpawnerContract: config::ConfigModule + blueprint::BlueprintModule + contract::ContractModule {
     #[init]
     fn init(&self) {
         let caller = self.blockchain().get_caller();

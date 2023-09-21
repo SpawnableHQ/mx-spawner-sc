@@ -22,10 +22,10 @@ multiversx_sc_wasm_adapter::endpoints! {
         addAdmin => add_admin
         removeAdmin => remove_admin
         getAdmins => admins
-        setObjectRoyalties => set_object_royalties_endpoint
-        spawnObject => spawn_object_endpoint
-        issueObjectCollection => issue_object_collection_endpoint
-        setObjectCollectionLocalRoles => set_local_roles
+        setBlueprintRoyalties => set_blueprint_royalties_endpoint
+        spawnBlueprint => spawn_blueprint_endpoint
+        issueBlueprintCollection => issue_blueprint_collection_endpoint
+        setBlueprintCollectionLocalRoles => set_collection_local_roles_endpoint
         spawnContract => spawn_contract_endpoint
         respawnContract => respawn_contract_endpoint
         getContracts => contracts
