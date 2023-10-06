@@ -7,7 +7,9 @@
   },
   "testnet": {
     "proxy": "https://testnet-gateway.multiversx.com",
-    "chain-id": "T"
+    "chain-id": "T",
+    "address": "erd1qqqqqqqqqqqqqpgqq75vtleur5rg74nk4f88ql6a7ajas073l3tsc5ljc9",
+    "deploy-transaction": "1304d3402d1c2b9fb933efa292637a3139ce4099b5b9f45e2df307452ca39b63"
   },
   "mainnet": {
     "proxy": "https://gateway.multiversx.com",
