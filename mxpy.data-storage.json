@@ -13,6 +13,8 @@
   },
   "mainnet": {
     "proxy": "https://gateway.multiversx.com",
-    "chain-id": "1"
+    "chain-id": "1",
+    "address": "erd1qqqqqqqqqqqqqpgqetyu63cs6x8t2eraz6lvhgr3pf2mpesfl3ts462ccm",
+    "deploy-transaction": "1e1f495cea2fbe1071ea23a1f00d945795c26840df7e69b2ee688c080407d83e"
   }
 }
