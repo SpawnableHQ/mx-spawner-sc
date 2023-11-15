@@ -24,6 +24,20 @@ pub trait ContractModule: config::ConfigModule {
         self.contract_respawned_event(address);
     }
 
+    #[endpoint(callContract)]
+    fn call_contract_endpoint(&self, contract: ManagedAddress, endpoint: ManagedBuffer, args: MultiValueEncoded<ManagedBuffer>) {
+        self.require_caller_is_admin();
+        require!(self.contracts().contains(&contract), "contract must be spawned first");
+
+        let gas_left = self.blockchain().get_gas_left();
+
+        self.send()
+            .contract_call::<()>(contract, endpoint)
+            .with_gas_limit(gas_left)
+            .with_raw_arguments(args.to_arg_buffer())
+            .execute_on_dest_context::<()>();
+    }
+
     #[view(getContracts)]
     #[storage_mapper("contracts")]
     fn contracts(&self) -> UnorderedSetMapper<ManagedAddress>;
