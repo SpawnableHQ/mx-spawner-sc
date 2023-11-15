@@ -4,6 +4,7 @@ ADDRESS=$(mxpy data load --partition $NETWORK_NAME --key=address)
 DEPLOY_TRANSACTION=$(mxpy data load --partition $NETWORK_NAME --key=deploy-transaction)
 PROXY=$(mxpy data load --partition $NETWORK_NAME --key=proxy)
 CHAIN_ID=$(mxpy data load --partition $NETWORK_NAME --key=chain-id)
+MANAGER_ADDRESS=$(mxpy data load --partition $NETWORK_NAME --key=manager-address)
 
 deploy() {
     echo "accidental deploy protection is active"
@@ -14,6 +15,7 @@ deploy() {
     cargo test || return
 
     mxpy contract deploy --project . \
+        --arguments $MANAGER_ADDRESS \
         --recall-nonce --gas-limit=80000000 \
         --proxy=$PROXY --chain=$CHAIN_ID \
         --outfile="deploy-$NETWORK_NAME.interaction.json" \
@@ -38,6 +40,7 @@ upgrade() {
     cargo test || return
 
     mxpy contract upgrade $ADDRESS --project . \
+        --arguments $MANAGER_ADDRESS \
         --recall-nonce --gas-limit=80000000 \
         --proxy=$PROXY --chain=$CHAIN_ID \
         --metadata-payable \

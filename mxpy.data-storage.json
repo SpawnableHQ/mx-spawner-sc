@@ -3,18 +3,21 @@
     "proxy": "https://devnet-gateway.multiversx.com",
     "chain-id": "D",
     "address": "erd1qqqqqqqqqqqqqpgqq75vtleur5rg74nk4f88ql6a7ajas073l3tsc5ljc9",
-    "deploy-transaction": "3b1e92fc6e84adaa5025748390c150566a9dd282f628442978106cb719867f56"
+    "deploy-transaction": "3b1e92fc6e84adaa5025748390c150566a9dd282f628442978106cb719867f56",
+    "manager-address": "erd10zm4zg6kdnywkdvyz4fct0qzwfdr6ha8kfz5d8sqhaqnwpe5ezvs6q9gza"
   },
   "testnet": {
     "proxy": "https://testnet-gateway.multiversx.com",
     "chain-id": "T",
     "address": "erd1qqqqqqqqqqqqqpgqq75vtleur5rg74nk4f88ql6a7ajas073l3tsc5ljc9",
-    "deploy-transaction": "1304d3402d1c2b9fb933efa292637a3139ce4099b5b9f45e2df307452ca39b63"
+    "deploy-transaction": "1304d3402d1c2b9fb933efa292637a3139ce4099b5b9f45e2df307452ca39b63",
+    "manager-address": "erd10zm4zg6kdnywkdvyz4fct0qzwfdr6ha8kfz5d8sqhaqnwpe5ezvs6q9gza"
   },
   "mainnet": {
     "proxy": "https://gateway.multiversx.com",
     "chain-id": "1",
     "address": "erd1qqqqqqqqqqqqqpgqetyu63cs6x8t2eraz6lvhgr3pf2mpesfl3ts462ccm",
-    "deploy-transaction": "1e1f495cea2fbe1071ea23a1f00d945795c26840df7e69b2ee688c080407d83e"
+    "deploy-transaction": "1e1f495cea2fbe1071ea23a1f00d945795c26840df7e69b2ee688c080407d83e",
+    "manager-address": "erd10zm4zg6kdnywkdvyz4fct0qzwfdr6ha8kfz5d8sqhaqnwpe5ezvs6q9gza"
   }
 }
