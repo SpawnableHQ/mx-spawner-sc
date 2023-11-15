@@ -9,8 +9,10 @@ pub mod contract;
 #[multiversx_sc::contract]
 pub trait SpawnerContract: config::ConfigModule + blueprint::BlueprintModule + contract::ContractModule {
     #[init]
-    fn init(&self) {
+    fn init(&self, manager: ManagedAddress) {
         let caller = self.blockchain().get_caller();
+
+        self.manager().set(&manager);
 
         if !self.admins().contains(&caller) {
             self.admins().insert(caller);

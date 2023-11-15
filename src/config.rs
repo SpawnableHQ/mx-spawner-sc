@@ -14,4 +14,8 @@ pub trait ConfigModule {
     #[view(getAdmins)]
     #[storage_mapper("admins")]
     fn admins(&self) -> UnorderedSetMapper<ManagedAddress>;
+
+    #[view(getManager)]
+    #[storage_mapper("manager")]
+    fn manager(&self) -> SingleValueMapper<ManagedAddress>;
 }
