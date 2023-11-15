@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                           10
+// Endpoints:                           13
 // Async Callback:                       1
-// Total number of exported functions:  12
+// Total number of exported functions:  15
 
 #![no_std]
 #![feature(lang_items)]
@@ -21,13 +21,16 @@ multiversx_sc_wasm_adapter::endpoints! {
         init => init
         addAdmin => add_admin
         removeAdmin => remove_admin
+        depositForFees => deposit_for_fees_endpoint
         getAdmins => admins
+        getManager => manager
         setBlueprintRoyalties => set_blueprint_royalties_endpoint
         spawnBlueprint => spawn_blueprint_endpoint
         issueBlueprintCollection => issue_blueprint_collection_endpoint
         setBlueprintCollectionLocalRoles => set_collection_local_roles_endpoint
         spawnContract => spawn_contract_endpoint
         respawnContract => respawn_contract_endpoint
+        callContract => call_contract_endpoint
         getContracts => contracts
     )
 }
