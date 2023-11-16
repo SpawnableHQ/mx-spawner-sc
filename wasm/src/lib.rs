@@ -21,7 +21,7 @@ multiversx_sc_wasm_adapter::endpoints! {
         init => init
         addAdmin => add_admin
         removeAdmin => remove_admin
-        depositForFees => deposit_for_fees_endpoint
+        depositFees => deposit_fees_endpoint
         getAdmins => admins
         getManager => manager
         setBlueprintRoyalties => set_blueprint_royalties_endpoint

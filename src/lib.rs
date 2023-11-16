@@ -32,8 +32,8 @@ pub trait SpawnerContract: config::ConfigModule + blueprint::BlueprintModule + c
         self.admins().swap_remove(&address);
     }
 
-    #[endpoint(depositForFees)]
-    fn deposit_for_fees_endpoint(&self) {
+    #[endpoint(depositFees)]
+    fn deposit_fees_endpoint(&self) {
         let caller = self.blockchain().get_caller();
         let value = self.call_value().egld_value();
         let manager = self.manager().get();
