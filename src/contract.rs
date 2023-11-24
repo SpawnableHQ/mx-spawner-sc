@@ -42,9 +42,9 @@ pub trait ContractModule: config::ConfigModule {
     #[storage_mapper("contracts")]
     fn contracts(&self) -> UnorderedSetMapper<ManagedAddress>;
 
-    #[event("contractSpawned")]
+    #[event("contract_spawned")]
     fn contract_spawned_event(&self, #[indexed] address: ManagedAddress);
 
-    #[event("contractRespawned")]
+    #[event("contract_respawned")]
     fn contract_respawned_event(&self, #[indexed] address: ManagedAddress);
 }

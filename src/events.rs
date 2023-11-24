@@ -6,6 +6,6 @@ pub trait EventsModule {
         self.fees_deposited_event(caller, amount);
     }
 
-    #[event("feesDeposited")]
+    #[event("fees_deposited")]
     fn fees_deposited_event(&self, #[indexed] caller: ManagedAddress, #[indexed] amount: BigUint);
 }
