@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                           13
+// Endpoints:                           14
 // Async Callback:                       1
-// Total number of exported functions:  15
+// Total number of exported functions:  16
 
 #![no_std]
 #![feature(lang_items)]
@@ -19,6 +19,7 @@ multiversx_sc_wasm_adapter::endpoints! {
     spawner
     (
         init => init
+        upgrade => upgrade
         addAdmin => add_admin
         removeAdmin => remove_admin
         depositFees => deposit_fees_endpoint
