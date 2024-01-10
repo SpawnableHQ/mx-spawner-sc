@@ -20,6 +20,9 @@ pub trait SpawnerContract: config::ConfigModule + blueprint::BlueprintModule + c
         }
     }
 
+    #[endpoint]
+    fn upgrade(&self) {}
+
     #[only_owner]
     #[endpoint(addAdmin)]
     fn add_admin(&self, address: ManagedAddress) {
