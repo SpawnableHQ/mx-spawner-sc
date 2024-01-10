@@ -34,13 +34,13 @@ pub trait SpawnerContract: config::ConfigModule + blueprint::BlueprintModule + c
 
     #[payable("EGLD")]
     #[endpoint(depositFees)]
-    fn deposit_fees_endpoint(&self, project: ManagedBuffer) {
+    fn deposit_fees_endpoint(&self, opt_project: OptionalValue<ManagedBuffer>) {
         let caller = self.blockchain().get_caller();
         let value = self.call_value().egld_value();
         let manager = self.manager().get();
 
         self.send().direct_egld(&manager, &value);
 
-        self.emit_fees_deposited_event(caller, project, value.clone_value());
+        self.emit_fees_deposited_event(caller, opt_project.into_option().unwrap_or_default(), value.clone_value());
     }
 }
