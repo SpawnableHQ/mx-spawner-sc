@@ -46,4 +46,19 @@ pub trait SpawnerContract: config::ConfigModule + blueprint::BlueprintModule + c
 
         self.emit_fees_deposited_event(caller, opt_project.into_option().unwrap_or_default(), value.clone_value());
     }
+
+    #[payable("*")]
+    #[endpoint(redeemVoucher)]
+    fn redeem_voucher_endpoint(&self) {
+        let caller = self.blockchain().get_caller();
+        let payment = self.call_value().single_esdt();
+        let voucher_collection = self.voucher_collection().get();
+
+        require!(payment.token_identifier == voucher_collection, "not a valid voucher");
+        require!(payment.amount == BigUint::from(1u32), "can only redeem one at a time");
+
+        self.send().esdt_local_burn(&payment.token_identifier, payment.token_nonce, &payment.amount);
+
+        self.emit_voucher_redeemed_event(caller, payment.token_nonce);
+    }
 }
