@@ -16,3 +16,4 @@ wallets/*
 
 # others
 *.pem
+.DS_Store
