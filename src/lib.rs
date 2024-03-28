@@ -20,7 +20,7 @@ pub trait SpawnerContract: config::ConfigModule + blueprint::BlueprintModule + c
         }
     }
 
-    #[endpoint]
+    #[upgrade]
     fn upgrade(&self) {}
 
     #[only_owner]
