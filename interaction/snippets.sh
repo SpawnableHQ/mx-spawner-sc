@@ -7,14 +7,12 @@ CHAIN_ID=$(mxpy data load --partition $NETWORK_NAME --key=chain-id)
 MANAGER_ADDRESS=$(mxpy data load --partition $NETWORK_NAME --key=manager-address)
 
 deploy() {
-    echo "accidental deploy protection is active"
-    exit 1;
-
     mxpy contract clean || return
     mxpy contract build || return
     cargo test || return
 
-    mxpy contract deploy --project . \
+    mxpy contract deploy \
+        --bytecode "output/spawner.wasm" \
         --arguments $MANAGER_ADDRESS \
         --recall-nonce --gas-limit=80000000 \
         --proxy=$PROXY --chain=$CHAIN_ID \
