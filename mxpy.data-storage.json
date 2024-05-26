@@ -1,4 +1,11 @@
 {
+  "voyager1": {
+    "proxy": "https://proxy-sov-ovh.elrond.ro",
+    "chain-id": "S",
+    "manager-address": "erd10zm4zg6kdnywkdvyz4fct0qzwfdr6ha8kfz5d8sqhaqnwpe5ezvs6q9gza",
+    "address": "erd1qqqqqqqqqqqqqpgqq75vtleur5rg74nk4f88ql6a7ajas073l3tsc5ljc9",
+    "deploy-transaction": "d1695a03ae28234e30852189a1166b1d31ec7fa93de74fce004078005c540415"
+  },
   "devnet": {
     "proxy": "https://devnet-gateway.multiversx.com",
     "chain-id": "D",
