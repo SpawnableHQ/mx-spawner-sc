@@ -1,7 +1,10 @@
 [package]
 name = "spawner"
 version = "0.0.0"
-authors = ["Micha Vie <micha@peerme.io>", "Spawnable <hello@spawnable.io>"]
+authors = [
+    "Micha Vie <micha@peerme.io>",
+    "Spawnable <hello@spawnable.io>",
+]
 edition = "2018"
 publish = false
 
@@ -11,8 +14,8 @@ path = "src/lib.rs"
 [dev-dependencies]
 num-bigint = "0.4.2"
 
-[dependencies.multiversx-sc]
-version = "0.50.3"
-
 [dev-dependencies.multiversx-sc-scenario]
-version = "0.50.3"
+version = "0.57.1"
+
+[dependencies.multiversx-sc]
+version = "0.57.1"
